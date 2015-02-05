@@ -1,7 +1,17 @@
 var app = angular.module('flapperNews', []);
 
 app.controller('MainCtrl', [
-'$scope',
-function($scope){
-  $scope.test = 'Hello world!';
+	'$scope',
+	function($scope){
+	  $scope.posts = [
+		{title: 'post 1', upvotes: 5},
+		{title: 'post 2', upvotes: 2},
+		{title: 'post 3', upvotes: 4},
+		{title: 'post 4', upvotes: 9}
+		];
+	  $scope.addPost = function (){
+	  	if(!$scope.title || $scope.title === '') { return; }
+	  	$scope.posts.push({title: $scope.title, upvotes: 0});
+	  };
+
 }]);
